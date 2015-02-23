@@ -136,8 +136,8 @@ APP.THREE = (function () {
 			intersects[0].object.material.color.setHex(Math.random() * 0xffffff);
 
 			if (intersects[0].object.name == 'test1') {
-				$('#loader').show();
-				addPanorama('{{ASSET_PREFIX}}i/content/360_2');
+				//$('#loader').show();
+				//addPanorama('{{ASSET_PREFIX}}i/content/360_2');
 				removeHotspots();
 			} else if (intersects[0].object.name == 'youtube') {
 				APP.View.addYtVideo();
