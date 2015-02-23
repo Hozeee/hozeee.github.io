@@ -1,0 +1,98 @@
+// No tap highlight mixin
+@mixin no-tap {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-ms-touch-action: none;
+	outline: none;
+}
+
+// Active state (hover, focus, active) mixin
+@mixin active-state($rule: false) {
+
+	@if $rule == false {
+
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+
+	} @else {
+
+		&:hover:#{$rule},
+		&:active:#{$rule},
+		&:focus:#{$rule} {
+			@content;
+		}
+
+	}
+}
+
+// Font-size from px in rem
+@mixin font-size($size-value: 1.6) {
+	font-size: get-rem($size-value);
+}
+
+// Multi-line text-ellipse
+@mixin multi-text-overflow($lines: 2) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: $lines;
+	@include display-box;
+	@include box-orient(vertical);
+}
+
+// BEM mixins
+// Elements get appended with "__" and the $name, or nested inside parent element if BEM is disabled
+@mixin element($name) {
+
+	@if $bem-enabled {
+
+		@at-root &__#{$name} {
+			@content;
+		}
+
+	} @else {
+
+		&.#{$name} {
+			@content;
+		}
+
+	}
+
+}
+
+// Modifiers get appended with "--" and the $name
+@mixin modifier($name) {
+
+	@if $bem-enabled {
+
+		@at-root &--#{$name} {
+			@content;
+		}
+
+	} @else {
+
+		&.#{$name} {
+			@content;
+		}
+
+	}
+
+}
+
+// Set color attribute (or given one) with BEM syntax
+@mixin bem-colorize($attributes: 'color', $class-name: 'color', $pseudo: '') {
+
+	@each $key, $value in $base-colors {
+
+		@include modifier(#{$class-name}-#{$key}#{$pseudo}) {
+
+			@each $attribute in $attributes {
+				#{$attribute}: $value;
+			}
+
+		}
+
+	}
+
+}

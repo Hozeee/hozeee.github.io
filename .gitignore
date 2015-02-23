@@ -1,0 +1,30 @@
+# WebStorm settings
+.idea/
+*.idea
+
+node_modules/
+idea/
+
+# SublimeText
+*.sublime-workspace
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# SASS
+*.sass-cache
+
+# SVN
+.svn/
+
+atlassian-ide-plugin.xml

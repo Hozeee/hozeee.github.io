@@ -1,0 +1,16 @@
+
+.loader {
+	height: 0;
+	top: 30%;
+
+	&.hide {
+		display: none;
+	}
+
+	h1 {
+		padding-top: 20px;
+		font-size: 40px;
+		color: #fff;
+	}
+
+}

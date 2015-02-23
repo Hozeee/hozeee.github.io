@@ -1,0 +1,24 @@
+// Convert px to rem
+@function get-rem($size-value: 1.6) {
+	@return ($size-value / 10) + rem;
+}
+
+// Include inline SVG
+@function svg-inline ($width, $height, $paths, $view-box: (0 0 ($width / 10) ($height / 10))) {
+	$xmlns: ' xmlns="http://www.w3.org/2000/svg"';
+	@return url('data:image/svg+xml,<svg#{$xmlns} width="#{$width}" height="#{$height}" viewBox="#{$view-box}">#{$paths}</svg>');
+}
+
+// Get unit (based on the $is_rem value)
+@function get-unit ($is-rem, $unit) {
+	@if $is-rem {
+		@return get-rem($unit);
+	} @else {
+		@return #{$unit}px;
+	}
+}
+
+// Get color by name
+@function color($name: 'white') {
+	@return map-get($base-colors, $name);
+}

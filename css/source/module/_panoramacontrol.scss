@@ -1,0 +1,31 @@
+
+.panorama__button {
+	display: none;
+	position: absolute;
+	left: 50%;
+	bottom: 100px;
+	margin-left: -120px;
+	padding: 20px;
+	background: red;
+	color: #fff;
+	cursor: pointer;
+	font-size: 20px;
+	border-radius: 5px;
+
+	z-index: 99999;
+
+	&__text {
+		text-transform: uppercase;
+	}
+
+	&__device {
+		font-size: 14px;
+	}
+
+	&:hover {
+		background: #f30;
+	}
+	&:active {
+		background: #f03;
+	}
+}
