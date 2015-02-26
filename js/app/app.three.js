@@ -275,11 +275,12 @@ APP.THREE = (function () {
 	}
 
 	function addLight() {
-		var pointLight = new THREE.PointLight(0xFFFFFF);
-		pointLight.position.x = 10;
-		pointLight.position.y = 50;
-		pointLight.position.z = 130;
-		scene.add(pointLight);
+		var directionalLight = new THREE.DirectionalLight(0xffffff);
+		directionalLight.position.set(1, 1, 1).normalize();
+		scene.add(directionalLight);
+
+		var ambientLight = new THREE.AmbientLight(0xbbbbbb);
+		scene.add(ambientLight);
 	}
 
 	function addHotSpots() {
@@ -305,10 +306,11 @@ APP.THREE = (function () {
 		addHotSpot({
 			color: 0x00FF00,
 			position: {
-				x: 6,
-				y: 2
+				x: -5,
+				y: 2,
+				z: 0
 			},
-			texture: 'http://www.fishinguy.com/img/species/carp.png',
+			texture: 'i/carp.jpg',
 			name: 'youtube'
 		});
 
@@ -317,16 +319,18 @@ APP.THREE = (function () {
 
 	function addHotSpot(data) {
 		var material = new THREE.MeshLambertMaterial({color: 0xFF0000}),
-			//geometry = new THREE.BoxGeometry(1, 1, 1),
-			geometry = new THREE.Mesh(1, 1, 1),
+			geometry = new THREE.CubeGeometry(2, 2, 0.01),
+		//geometry = new THREE.Mesh(1, 1, 1),
 			texture,
 			hotSpot;
 
-		if(data.texture) {
+		geometry.overdraw = true;
+
+		if (data.texture) {
 			texture = THREE.ImageUtils.loadTexture(data.texture);
 			material = new THREE.MeshLambertMaterial({
 				map: texture
-			})
+			});
 		}
 
 		hotSpot = new THREE.Mesh(geometry, material);
@@ -366,6 +370,10 @@ APP.THREE = (function () {
 				return;
 			}
 			videoTexture.needsUpdate = true;
+		}
+
+		for (var i = 0; i < objects.length; i++) {
+			objects[i].rotation.y += 0.01;
 		}
 
 		renderer.render(scene, camera);
