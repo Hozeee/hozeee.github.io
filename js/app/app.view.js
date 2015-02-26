@@ -58,6 +58,7 @@ APP.View = (function () {
 			}
 		});
 
+
 		$startButton.on('click ', function () {
 			$startButton.off();
 			$startButton.hide();

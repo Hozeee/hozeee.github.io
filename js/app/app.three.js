@@ -19,6 +19,7 @@ APP.THREE = (function () {
 		videoTexture,
 		panner,
 		videoAdded = false,
+		poco,
 		$panorama;
 
 	var onPointerDownPointerX = 0,
@@ -131,6 +132,7 @@ APP.THREE = (function () {
 		raycaster.ray.set(camera.position, vector.sub(camera.position).normalize());
 
 		var intersects = raycaster.intersectObjects(objects);
+		//var intersects = raycaster.intersectObjects([poco]);
 
 		if (intersects.length > 0) {
 			intersects[0].object.material.color.setHex(Math.random() * 0xffffff);
@@ -180,6 +182,9 @@ APP.THREE = (function () {
 	}
 
 	function initThreejs() {
+
+		console.log('initThreejs');
+
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1100);
 		camera.target = new THREE.Vector3(0, 0, 0);
@@ -285,7 +290,7 @@ APP.THREE = (function () {
 
 	function addHotSpots() {
 
-		addHotSpot({
+		/*addHotSpot({
 			color: 0xFF0000,
 			position: {
 				x: 0,
@@ -312,14 +317,38 @@ APP.THREE = (function () {
 			},
 			texture: 'i/carp.jpg',
 			name: 'youtube'
-		});
+		});*/
 
+		addPoco();
+
+	}
+
+	function addPoco() {
+		var loader = new THREE.JSONLoader();
+
+		loader.load('i/poco.js', function (geometry, materials) {
+			var material = new THREE.MeshLambertMaterial({
+				map: THREE.ImageUtils.loadTexture('i/poco.png'),
+				colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+				colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+				colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+			});
+
+			poco = new THREE.Mesh(geometry, material);
+			poco.position.z = 15;
+			poco.position.x = -25;
+			poco.position.y = -10;
+
+			objects.push(poco);
+
+			scene.add(poco);
+		});
 
 	}
 
 	function addHotSpot(data) {
 		var material = new THREE.MeshLambertMaterial({color: 0xFF0000}),
-			geometry = new THREE.CubeGeometry(2, 2, 0.01),
+			geometry = new THREE.BoxGeometry(2, 2, 0.01),
 		//geometry = new THREE.Mesh(1, 1, 1),
 			texture,
 			hotSpot;
@@ -374,6 +403,10 @@ APP.THREE = (function () {
 
 		for (var i = 0; i < objects.length; i++) {
 			objects[i].rotation.y += 0.01;
+		}
+
+		if (poco) {
+			poco.rotation.y += 0.01;
 		}
 
 		renderer.render(scene, camera);
