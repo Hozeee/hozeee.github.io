@@ -35,7 +35,7 @@ APP.Main = (/** @lends APP.Main */function () {
 
 		//test webgl support
 		APP.isWebgAvailable = webglAvailable();
-//		APP.isWebgAvailable = false;
+		//APP.isWebgAvailable = false;
 
 		//test css3d transform support
 		APP.isCssTransform3dAvailable = !!$('html').hasClass('csstransforms3d');
@@ -44,7 +44,7 @@ APP.Main = (/** @lends APP.Main */function () {
 		console.log('isWebglcompatible: ', APP.isWebgAvailable);
 		console.log('isCssTransform3dAvailable: ', APP.isCssTransform3dAvailable);
 
-		$('#startbutton .panorama__button__device').text('webgl: ' + APP.isWebgAvailable + ', css3d: ' + APP.isCssTransform3dAvailable);
+		$('#startbutton .panorama__button__device').text('webgl: ' + APP.isWebgAvailable);
 
 		APP.View.init();
 	}

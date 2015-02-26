@@ -308,6 +308,7 @@ APP.THREE = (function () {
 				x: 6,
 				y: 2
 			},
+			texture: 'http://www.fishinguy.com/img/species/carp.png',
 			name: 'youtube'
 		});
 
@@ -316,8 +317,17 @@ APP.THREE = (function () {
 
 	function addHotSpot(data) {
 		var material = new THREE.MeshLambertMaterial({color: 0xFF0000}),
-			geometry = new THREE.BoxGeometry(1, 1, 1),
+			//geometry = new THREE.BoxGeometry(1, 1, 1),
+			geometry = new THREE.Mesh(1, 1, 1),
+			texture,
 			hotSpot;
+
+		if(data.texture) {
+			texture = THREE.ImageUtils.loadTexture(data.texture);
+			material = new THREE.MeshLambertMaterial({
+				map: texture
+			})
+		}
 
 		hotSpot = new THREE.Mesh(geometry, material);
 		hotSpot.name = data.name;
