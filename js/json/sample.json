@@ -1,0 +1,10 @@
+{
+	"test": {
+		"0": {
+			"test-key-1": {
+				"someValue": false
+			}
+		}
+	}
+
+}

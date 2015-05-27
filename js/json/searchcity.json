@@ -1,0 +1,19 @@
+{
+	"result": [
+		{
+			"cityID": "AB4727E4-FC08-4D6C-BE58-22CF0A60D9B5",
+			"total": 4
+		},
+		{
+			"cityID": "490C9CB9-5F34-4E6B-A605-D56D48DD64A1",
+			"total": 1
+		}
+	],
+	"errorCodes": null,
+	"redirectUrl": null,
+	"responseMessage": null,
+	"isSuccess": true,
+	"serverTime": 1427468291,
+	"genericError": null,
+	"technicalError": null
+}

@@ -193,7 +193,7 @@ APP.THREE = (function () {
 
 		addLight();
 
-		renderer = new THREE.WebGLRenderer();
+		renderer = new THREE.WebGLRenderer();nem ismerek
 		renderer.setSize($panorama.width(), $panorama.height());
 		renderer.domElement.cssClass = 'canvas-elem';
 		renderer.domElement.id = 'webglcanvas';

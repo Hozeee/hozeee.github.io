@@ -1,116 +1,1031 @@
 <!DOCTYPE html>
-<html class="no-js" dir="ltr" lang="en">
-<head prefix="expression">
-	<meta charset="utf-8">
-	<title>Page title</title>
-	<meta content="IE=Edge" name="http-equiv">
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
-	<meta content="keywords" name="keywords">
-	<meta content="description" name="description">
-	<link href="favicon" rel="icon">
-	<meta content="OG TITLE" property="og:title">
-	<meta content="website" property="og:type">
-	<meta content="OG URL" property="og:url">
-	<meta content="OG IMAGE" property="og:image">
-	<meta content="OG SITE NAME" property="og:site_name">
-	<meta content="OG DESCRIPTION" property="og:description">
-	<meta content="FB APP ID" property="og:fb:app_id">
-	<meta content="summary" name="twitter:card">
-	<meta content="@site_username" name="twitter:site">
-	<meta content="PAGE TITLE" name="twitter:title">
-	<meta content="DESCRIPTION" name="twitter:description">
-	<meta content="@creator_username" name="twitter:creator">
-	<meta content="IMAGE" name="twitter:image:src">
-	<meta content="DOMAIN" name="twitter:domain">
-	<meta content="black" name="apple-mobile-web-app-status-bar-style">
-	<meta content="yes" name="apple-mobile-web-app-capable">
-	<meta content="Page title" name="apple-mobile-web-app-title">
-	<meta content="telephone=no" name="format-detection">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="57x57">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="72x72">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="76x76">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="114x114">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="120x120">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="144x144">
-	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="152x152">
-	<!--[if gte IE 10]>
-	<meta content="Page title" name="application-name">
-	<meta content="description" name="msapplication-tooltip">
-	<meta content="#TILECOLOR_HERE" name="msapplication-tilecolor">
-	<meta content="#TILEIMAGE_HERE" name="msapplication-tileimage">
-	<![endif]-->
-	<link href="css/app.css" media="screen" rel="stylesheet" type="text/css"/>
-	<script src="js/headjs.js" type="text/javascript"></script>
-	<script>
-		var secondaryHeadScripts = [ "js/modernizr.js", false],
-				scriptInterface = ["Modernizr", "THREE"],
-				needFallbackLoad = false,
-				i, fallbackScripts = [];
-
-		head.load(["//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js", "js/head.min.js", "js/three.js"], function () {
-
-			for (i = 0; i < scriptInterface.length; i++) {
-				if (secondaryHeadScripts[i] && !window[scriptInterface[i]]) {
-					fallbackScripts.push(secondaryHeadScripts[i]);
-					needFallbackLoad = true;
-				}
-			}
-
-		});
-	</script>
+<html lang='en' dir='ltr' class='no-js'>
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb#">
+  <meta charset="utf-8">
+  <title>Page title</title>
+  <link href="/css/app.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/js/headjs.js" type="text/javascript"></script>
+  <script>
+    var secondaryHeadScripts = ["/js/components-webfontloader.js", "/js/modernizr.js", false],
+    	scriptInterface = ["Webfont", "Modernizr", "APP.Head"],
+    	needFallbackLoad = false,
+    	i, fallbackScripts = [];
+    
+    head.load(["//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js", "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js", "/js/head.min.js"], function () {
+    	for (i = 0; i < scriptInterface.length; i++) {
+    		if (secondaryHeadScripts[i] && !window[scriptInterface[i]]) {
+    			fallbackScripts.push(secondaryHeadScripts[i]);
+    			needFallbackLoad = true;
+    		}
+    	}
+    
+    	if (needFallbackLoad === false) {
+    		APP.Head.getInstance();
+    	} else {
+    	  head.load(fallbackScripts, function () {
+    		  APP.Head.getInstance();
+    	  });
+    	}
+    
+    });
+  </script>
 </head>
-<body>
-<div class="page">
-	<div class="panorama block block--vp block--vp-middle">
-		<div class="panorama__inner block block--inline-block" data-render="webgl3" id="panorama">
-			<div id="space">
-				<div class="pivot">
-					<div class="rotate" data-rotate="">
-						<div class="side side-front">
-							<canvas height="1000" id="side-front" width="1000"></canvas>
-						</div>
-						<div class="side side-left">
-							<canvas height="1000" id="side-left" width="1000"></canvas>
-						</div>
-						<div class="side side-right">
-							<canvas height="1000" id="side-right" width="1000"></canvas>
-						</div>
-						<div class="side side-back">
-							<canvas height="1000" id="side-back" width="1000"></canvas>
-						</div>
-						<div class="side side-top">
-							<canvas height="1000" id="side-top" width="1000"></canvas>
-						</div>
-						<div class="side side-bottom">
-							<canvas height="1000" id="side-bottom" width="1000"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panorama__button block" id="startbutton">
-				<div class="panorama__button__text">Start Experience</div>
-				<div class="panorama__button__device">Loading data...</div>
-			</div>
-			<div class="panorama__button block" id="notsupportedbutton">
-				<div class="panorama__button__text">Not supported</div>
-			</div>
-			<div class="loader" id="loader">
-				<img height="65" src="i/asset/loading-spin.svg" width="64">
-
-				<h1>Loading</h1>
-			</div>
-		</div>
-	</div>
-	<div class="possiblelogo block">
-		<div class="possible__image">
-			<img height="32" src="i/asset/possible.svg" width="140">
-		</div>
-	</div>
-</div>
-<script>
-	head.load(["js/app.min.js", "js/jquery.js", "js/plugin.min.js"], function () {
-		APP.Main.getInstance();
-	});
+<body class="globe-animation">
+  <header data-header="true">
+    <a class="baku-logo text--color-white" data-logo="" data-nav="true" href="/en">
+      Baku 2015 - First European Games
+    </a>
+    <nav class="menu menu--primary">
+      <div class="menu__item">
+        <a class="button" data-nav="true" href="/en/news">
+          News
+        </a>
+      </div>
+      <div class="menu__item">
+        <a class="button" data-nav="true" href="/en/liveblog">
+          Live Blog
+        </a>
+      </div>
+      <div class="menu__item search" data-search="true">
+        <input placeholder="Search for cities, events or messages">
+        <div class="lines"></div>
+        <button class="search-button">
+          <i class="icon-search icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+          </i>
+        </button>
+        <button class="close-button">
+          <i class="icon-close icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </i>
+        </button>
+      </div>
+    </nav>
+    <nav class="menu menu--secondary">
+      <div class="menu__item post">
+        <a class="button primary" data-contribute-button="true" data-nav="true" href="/en/contribute/">
+          <div class="text">Post your fiery message</div>
+        </a>
+      </div>
+      <div class="menu__item lang" data-lang-sel="true">
+        <a data-lang="en" href="/en/">Eng</a>
+        <a data-lang="az" href="/az/">Az</a>
+      </div>
+    </nav>
+    <nav class="timeline" data-timeline="true"></nav>
+  </header>
+  <div class="page">
+    <div id="google-maps"></div>
+    <div id="webgl-content"></div>
+    <div class="intro-text" data-intro="true">
+      <div class="inner-content">
+        <p>Follow the journey of the torch <br>and post your own message</p>
+        <a class="button primary" data-contribute-button="true" data-nav="true" href="/en/contribute/">
+          <div class="text">Post your fiery message</div>
+        </a>
+      </div>
+    </div>
+    <div class="webgl-skip">
+      <div class="button primary" data-skip-intro="true">Skip Animation</div>
+    </div>
+    <div class="webgl-control">
+      <div class="webgl-control__button" data-webgl-control="zoomin">+</div>
+      <div class="webgl-control__button" data-webgl-control="zoomout">-</div>
+    </div>
+    <script type="x-shader/x-vertex" id="vertexshader">
+    
+    attribute float size;
+    attribute vec3 customColor;
+    varying vec3 vColor;
+    
+    void main()
+    {
+    	vColor = customColor;
+    	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+    
+    	gl_PointSize = size * ( 300.0 / length( mvPosition.xyz ) );
+    	gl_Position = projectionMatrix * mvPosition;
+    }
+    </script>
+    
+    <script type="x-shader/x-fragment" id="fragmentshader">
+    
+    uniform vec3 color;
+    
+    uniform sampler2D texture;
+    varying vec3 vColor;
+    
+    void main()
+    {
+    	gl_FragColor = vec4( color * vColor, 1.0 );
+    	gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+    }
+    </script>
+    <script type="x-shader/x-vertex" id="vertexshader2">
+    
+    varying vec2 vUv;
+    
+    void main()
+    {
+    	vUv = uv;
+    	vec4 mvPosition = modelViewMatrix * vec4(position, 1.0 );
+    	gl_Position = projectionMatrix * mvPosition;
+    }
+    
+    </script>
+    
+    
+    <script type="x-shader/x-fragment" id="fragmentshader2">
+    uniform float iGlobalTime;
+    
+    varying vec2 vUv;
+    
+    vec2 hash( vec2 p )
+    {
+    	p = vec2( dot(p , vec2(127.1,311.7)), dot(p , vec2(269.5,183.3)) );
+    	return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+    }
+    
+    float noise( in vec2 p )
+    {
+    	const float K1 = 0.366025404; // (sqrt(3)-1)/2;
+    	const float K2 = 0.211324865; // (3-sqrt(3))/6;
+    
+    	vec2 i = floor( p + (p.x+p.y)*K1 );
+    
+    	vec2 a = p - i + (i.x+i.y)*K2;
+    	vec2 o = (a.x>a.y) ? vec2(1.0,0.0) : vec2(0.0,1.0);
+    	vec2 b = a - o + K2;
+    	vec2 c = a - 1.0 + 2.0*K2;
+    
+    	vec3 h = max( 0.5-vec3(dot(a,a), dot(b,b), dot(c,c) ), 0.0 );
+    
+    	vec3 n = h*h*h*h*vec3( dot(a,hash(i+0.0)), dot(b,hash(i+o)), dot(c,hash(i+1.0)));
+    
+    	return dot( n, vec3(70.0) );
+    }
+    
+    float fbm(vec2 uv)
+    {
+    	float f;
+    	mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
+    	f  = 0.5000*noise( uv ); uv = m*uv;
+    	f += 0.2500*noise( uv ); uv = m*uv;
+    	f += 0.1250*noise( uv ); uv = m*uv;
+    	f += 0.0625*noise( uv ); uv = m*uv;
+    	f = 0.5 + 0.5*f;
+    	return f;
+    }
+    
+    void main()
+    {
+    	vec2 p = vUv;
+    	vec2 q = p;
+    	q.x *= 1.;
+    	q.y *= 2.;
+    	float strength = floor(q.x+1.);
+    	float T3 = max(3.,1.25 * strength) * iGlobalTime;
+    	q.x = mod(q.x , 1.) - 0.5;
+    	q.y -= 0.25;
+    	float n = fbm(strength * q - vec2(0 , T3));
+    	float c = 1. - 16. * pow( max( 0., length(q * vec2(1.8 + q.y * 1.5 , .75) ) - n * max( 0., q.y + .25 ) ) , 1.2 );
+    	float c1 = n * c * (1.5 - pow(2.50 * p.y, 4.));
+    	c1 = clamp(c1,0.,1.);
+    
+    	vec3 col = vec3(1.5*c1, 1.5*c1*c1*c1, c1*c1*c1*c1*c1*c1);
+    
+    #ifdef BLUE_FLAME
+    	col = col.zyx;
+    #endif
+    #ifdef GREEN_FLAME
+    	col = 0.85*col.yxz;
+    #endif
+    
+    	float a = c * (1. - pow(p.y, 3.));
+    	gl_FragColor = vec4( mix(vec3(0.),col,a), 1.0);
+    }
+    </script>
+    <script type="application/x-glsl" id="sky-vertex">
+    varying vec2 vUV;
+    
+    void main() {
+    	vUV = uv;
+    	vec4 pos = vec4(position, 1.0);
+    	gl_Position = projectionMatrix * modelViewMatrix * pos;
+    }
+    </script>
+    
+    <script type="application/x-glsl" id="sky-fragment">
+    uniform sampler2D texture;
+    varying vec2 vUV;
+    
+    void main() {
+    	vec4 sample = texture2D(texture, vUV);
+    	gl_FragColor = vec4(sample.xyz, sample.w);
+    }
+    </script>
+    <div class="block--display-none">
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+    <g id="bakuborder">
+    	<path fill="none" stroke="#000000" stroke-miterlimit="10" d="M206.87,65.41l-10.95-8.36l-2.38-11.64l2.74-16.27l2.7-4.19
+    l14.12,3.26l3.86-1.39l12.77-24.76L230.34,0l15.24,3.88l19.96,8.99l-3.69,7.06l0.73,1.58l6.91-2.38l10.1-1.63l8.61-1.63l5.74-1.76
+    l2.6,6.7l2.82,11.94l12.24,5.05l6.19,4.99l3.76,7.24l5.38,4.36l2.82,6.22l1.36,8.11l4.84,4.31l6.47-5.87l1.84-3.42l6.54,2.33
+    l10.9,25.36l7.64,15.62l1.51,3.38l7.8,14.89l25.24,9.2l7.85,4.26l11.61,5.91l0.5-0.42l3.53-5.91l10.12,3.01l20.55,2.68l1.67-1.55
+    l10.92-5.6l7.23-3.67l-2.37-7.49l5.25-15.62l1.14-0.95l11.97-9.46l6.1-7.5l2.19-5.79l2.79-4.83l11.5-5.7l7.82-3l9.75-5.16l18.32-9.9
+    l11.43-10.7l10.44-20.39L588.83,2.9l16.29-2.03l15.98,20.4l15.58,19.28l16.27,23.67l17.63,22.85l20.12,38.22l1.48,9.75l7.91,33.49
+    l22.1,30.02l14.05,13.63l16.87,9.35l5.54,14.05l6.21,28.21l5.08,2.34l12.78,3.71l15.44,5.26l11.68,1.95l17.45-1.77l18.37-3.78
+    l6.88-3.13l12.92,16.9l10.75,3.86l10.02,7.2l13.93,10.53l-3.84-8.14l-0.95-6.13l4.68-0.4l2.89,4.28l3.49,14.74l-5.38,0.37l0.34,1.38
+    l5.06,8l1.4,5.11l2.25,19.76l-0.3,2.47l-6.69-6.39l-4.73-10.66l-22.95-7.52l-6.59-2.74l-7.43,2.24l-2.09,1.92l-22.94,1.13
+    l-10.19-4.07l-8.15,5.93l-7.09,10.05l-25.61,10.3l-26.55,17.69l-2.27,10.21l-2.23,6.42l-4.39,15.24l4.74,4.32l-0.19,7.28
+    l-3.22,18.01l-0.33,8.54l-5.43,20.34l3.57,13.58l-13.4,17.03l-9.05,24.72l0.19,5.99l9.08,10.68l3.62,3.39l10.59,8.86l-3.39,7.94
+    l3.05,9.72l-1.31,0.62l-2.87-2.41l-3.14,5.47l-4.56-8.52L729,549.5l-8.99,5.19l-1.09,12.33l0.47,16.94l-5.12,32.83l-1.66,1.82
+    l-1.68-8.5l-2.41-3.95l-1.36-5.73l-6.18-0.6l-3.74,2.09l-2.55,2.82l-2.71-3.07l-0.78-3.75l-2.34-3.8l-3.77-7l1.12-6.52h-5.84
+    l-5.12,5.57l-9.12,15.26l-1.91,13.78l2.78,5.82l-4.71,32.24l-6.65,10.05l-2.48-5.38l-1,2.27l8.69,55.77l1.07,24.76l-7.48,11.3
+    l-8.34,3.3l-8.11,6.02h-7l0,0l-5.85-0.91l-17.85-11.36l-0.6-1.35l-12.15-16.19l-9.67-11.81l-3.41-0.31l-11.14,2.03l-9.64-6.04
+    l-5.52-5.42l-3.05-6.46l-9.67-14.68l-33.37-19.77l-3.74-17.68l5.99-0.68l8.45-1.55l11.18-6.14l32.89-17.75l-1.73-11.11l-15.2-12
+    l-4.98-6.39l-2.2-3.07L529.29,578l-0.97-2.91l12.54-14.26l3.71-1.97l22.58-12.8l-10.51-12.16l-42.04-49.13l-17.91-7.42l-23.83,13.39
+    l-6.81,3.27l-13.95,8.75l-6.24,3.61l-25.45,16.92l-16.14,6.43l-12.13,7.96l-4.29,5.45l-16.15,13.03l-2.51,2.17l-14.17,9.56
+    l-7.35,8.03l-12.84,17.32l-13.62,8.1l-7.77,0.64l-11.09,1.74l-9.39,6.29l-7.53,9.88l-11.06,14.99l-7.98,10.48l-13.19,10.23
+    l2.89-35.8l-1.27-8.32l-4.28-8.73l-5.56-4.35l-4.62-12.75l2.48-1.7l5.75-1.36l5.89-0.98l4.69,9.57l1.29-1.93l9.02-6.95l3.57-1.71
+    l-3.27-2.31l-12.88-9.54l-0.94-2.69l-11.06-12.61l-8.83-3.4l-5.48-15.22l9.14-6.5l8.91-6.57l7.8,4.7l1.12-1.33l-4.94-5.45
+    l-0.11-6.14l1.4-8.82l-6.83,1.03l-9.07-6.16l-5.38-5.54l-26.98,4.21l-23.86-8.54l-0.84-2.71l-1.34-3.64l-20.31-23.49l-4-1.47
+    l-20.1-9.87l-7.7-16.03l0.08-0.48l-5.12-7.31l-8.04-2.51l-10.04-2.29l-8.91-7.33l3.76-6.14l30.03,0.41l2.97,2.82l7.18,0.5
+    l10.1-16.61l5.71-5.12l4.15-3.18l-5.17-3.63l4.15-1.46l0.8-0.48l-0.03-14.27l-4.3-2.43l-3.13-4.48l5.69-2.91l-6.1-3.37l-18.23-5.46
+    l-24.7-9.78l-4.01-2.96l-25.16-22.95l-8.07-5.66l0.49-8.31l-2.47-10.36l-6.89-2.88l-2.03-2.4l-2.75-10.28l9.31-13.39l10.73-6.27
+    l20.36-14.21l1.3-7.31l-10.88-8.58l-1.66-1l-8.02-8.23l-4.26-2.49l-4.66,1.35l-2.77-7.74l2.92-4.33l-0.73-0.97l-6.29,3.4
+    l-12.32-2.65l-4.19-0.41l-6.65-1.63l-3.32-2.69l-10.42-7.08l-2.14-0.38l-11.12,3.96l-1.6-5.41l6.47-7.86l7.35-0.53l5.45-6.49
+    l-7.59-7.34l-8.37,0.24l-4.95-7.29l-1.51-6.75L0,140.44l10.45-8.34l18.1-16.61l8.8-8.34l8.33-8.32l5.69-3.3l6.29-1.33l8.83,3.49
+    l12.14-0.22l18.56,13.24l4.44,2.53l9.52,3.43l8.97,2.48l6.63,5.79l-7.11,1.89l12.07,17.48l23.81,10.89l25.5-1.79l7.08-2.59
+    l19.08-0.64l8.38,3.52l18.87,12.65l11.37,5.51l6.72-0.74l18.07-8.86l0.96-4.18l7.83-22.7l0.64-3.89l-4.21-9.87l-0.23-0.42
+    l-25.97-13.84l-6.63-2.97l-21.7-14.22l-4.02-5.68l-1.59-1.72l-4.57-9.1l2.8-0.48l2.42-0.15L206.87,65.41"/>
+    </g>
+    </svg>
+    </div>
+    <div class="block--display-none">
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+    <g id="bakuborder2">
+    	<path fill="none" stroke="#000000" stroke-miterlimit="10" d="M0,16.14l17.74-5.55l3.7,0.01l23.86-5.78l11.95-3.72l8.14,7.72
+    l8.17,14.42l2.92,14.53l-1.42,7.03l1.39,0.71l2.77-3.67l14.68-2.86l1.52,4.31l6.29,10.1l10.43,8.2l7.14,4.71l20.34-15.96l3.3-0.86
+    l11.65-3.56l14.23-0.58l11.29,7.24l2.82,4.92l0.59,7.31L180.8,82.9l-1.32,6.7l3.59,5.78l29.91,15.39l0.71,10.45l0.78,13.41
+    l3.87,9.62l4.63,12.67l3.37,6.47l1.18,3.76l10.98,29.97l-2.93,6.66l-7.01,0.29l-10.61-0.95l-8.52-0.85l-10.6,0.97l-4.5-0.42
+    l-28.66-12.81l-20.65-4.73l-4.26-2.31l-4.44-1.47l-12.59-2.63l-6.37-2.39l-4.32-4.27l0.77-6.24l1-1.21l-9.46-9.71l-4.42-3.04
+    l-12.37-13.15l-0.9-2.1l-14.63-6.22l-10.41-4.25l-2.36-3.77l-3.53-16.54l-9.49-16.22L36.4,81.5l-4.4-5.59l-5.83-17.04L23.31,48.1
+    l-7.36-9.28l-8.18-7.01L0,16.14L0,16.14z"/>
+    </g>
+    </svg>
+    </div>
+    <div class="overlay block" data-overlay="">
+      <div class="overlay__content" data-overlay-content="true"></div>
+      <div class="overlay__close" data-nav="overlay-close">
+        <span>
+          <i class="icon-close icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </i>
+        </span>
+      </div>
+      <div class="overlay__back" data-nav="overlay-back">
+        <span>
+          <i class="icon-back icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-back"></use>
+            </svg>
+          </i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer__social">
+      <a class="button" href="#">
+        <i class="icon-instagram icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-instagram"></use>
+          </svg>
+        </i>
+      </a>
+      <a class="button" href="#">
+        <i class="icon-facebook icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-facebook"></use>
+          </svg>
+        </i>
+      </a>
+      <a class="button" href="#">
+        <i class="icon-twitter icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-twitter"></use>
+          </svg>
+        </i>
+      </a>
+    </div>
+    <div class="footer__copyright">
+      <span class="text--color-grey text--uppercase">
+        &copy; Baku 2015 European Games official website. All rights reserved.
+      </span>
+      <a class="text--color-red text--uppercase text--bold" data-nav="true" href="/en/privacy-and-policy">
+        Privacy & Policy
+      </a>
+    </div>
+    <div class="footer__fallback-change" data-change-version="true">
+      Change 3d/fallback
+    </div>
+    <div class="footer__show-intro" data-show-intro="true">
+      Show Intro
+    </div>
+    <div class="footer__link-container">
+      <a class="button button--bg-red" href="http://www.baku2015.com/">
+        Baku2015.com
+      </a>
+    </div>
+  </footer>
+  <script>
+    head.load(["/js/app.min.js", "/js/jquery.js", "/js/plugin.min.js", "/js/three.min.js", "/js/TweenMax.min.js", "/js/dat.gui.js", "/js/three.postprocessing.js", "/js/stats.min.js"], function () {
+    	APP.Main.getInstance();
+    });
+  </script>
+  <script id="image-list-template" type="text/x-handlebars-template">
+  {{#each images}}<li class="block block--inline-block"><div class="block image__item" data-image-id="{{this.id}}" data-image-url="{{this.fullimage}}" data-location-lat="{{this.lat}}" data-location-long="{{this.long}}" style="background-image: url({{this.thumbnail}})"></div></li>{{/each}}
+</script>
+<script id="contribution-template" type="text/x-handlebars-template">
+  <div class="social-view block">
+    <p>
+      Choose how would you like to contribute!
+    </p>
+    <div class="block loginblock">
+      <div class="button login-button--facebook" data-facebook-login="true">
+        Login with Facebook
+      </div>
+      <div class="button login-button--instagram" data-instagram-login="true">
+        Login with Instagram
+      </div>
+    </div>
+  </div>
+  <div class="images-view block" data-images-block="true">
+    <h2>
+      Choose a picture you would to post or
+      <div class="direct-upload">
+        <div class="file-upload" data-direct-upload="true">
+          <span>
+            upload it from your desktop
+            <span class="icon">
+              <i class="icon-image icon-wrapper">
+                <svg viewBox="0 0 256 256">
+                  <use xlink:href="#icon-image"></use>
+                </svg>
+              </i>
+            </span>
+          </span>
+          <input id="fileupload" name="file" type="file">
+        </div>
+      </div>
+    </h2>
+    <ul data-image-list=""></ul>
+    <div class="button prev block--display-none" data-images-prev-button="">
+      Previous
+    </div>
+    <div class="button next block--display-none" data-images-next-button="">
+      Next
+    </div>
+  </div>
+  <div class="contribute-view block" data-contribute-block="true">
+    <div class="image-upload block block--inline-block" data-image-upload="true">
+      <div class="image-upload__image block block--full-size"></div>
+      <div class="image-upload__placeholder">
+        <i class="icon-image icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-image"></use>
+          </svg>
+        </i>
+      </div>
+      <div class="image-upload__message">
+        <span class="error" data-upload-error="">
+          An error occured
+        </span>
+        <span class="notfound">
+          No photos found on your
+          <span class="facebook block--display-none">Facebook</span>
+          <span class="instagram block--display-none">Instagram</span>
+          account. Please upload one!
+        </span>
+      </div>
+      <div class="button block--display-none" data-facebook-photos="true">
+        <span class="icon">
+          <i class="icon-back icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-back"></use>
+            </svg>
+          </i>
+        </span>
+        Back to images
+      </div>
+      <div class="button block--display-none" data-instagram-photos="true">
+        <span class="icon">
+          <i class="icon-back icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-back"></use>
+            </svg>
+          </i>
+        </span>
+        Back to images
+      </div>
+      <div class="direct-upload">
+        <div class="file-upload" data-direct-upload="true">
+          <span>
+            <span class="icon">
+              <i class="icon-image icon-wrapper">
+                <svg viewBox="0 0 256 256">
+                  <use xlink:href="#icon-image"></use>
+                </svg>
+              </i>
+            </span>
+            Upload an image
+          </span>
+          <input id="fileupload" name="file" type="file">
+        </div>
+      </div>
+      <div class="image-upload__progress" id="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <form class="block block--inline-block" data-contribute-form="">
+      <fieldset>
+        <div class="field">
+          <input maxlength="40" name="title" placeholder="Title" type="text">
+        </div>
+        <div class="field">
+          <textarea data-character-limit="250" maxlength="250" name="description" placeholder="Message"></textarea>
+          <div class="character-limit">
+            250
+          </div>
+        </div>
+        <div class="field">
+          <input data-tags-target="" name="tags" placeholder="Tags" type="hidden">
+          <input data-tags="5" maxlength="20" placeholder="Add tags separated by commas or spaces" type="text">
+          <div class="tag-list" data-tags-label="Tags" data-tags-list=""></div>
+        </div>
+        <div class="field">
+          <select name="city">
+            <option>Select a city</option>
+          </select>
+        </div>
+        <div class="field terms">
+          By posting this message you agree to following
+          <a data-nav="true" href="/en/terms">
+            Terms & conditions
+          </a>
+        </div>
+        <div class="field submit">
+          <button class="button" data-submit="true" type="submit">
+            Post message
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <div class="loading"></div>
+    <div class="message">
+      <div class="message-content-timeout">
+        <h2>
+          Service timeout! Please try again!
+        </h2>
+        <span class="button" data-close-post-message="">
+          OK
+        </span>
+      </div>
+      <div class="message-content-confirm">
+        <h2>
+          Are you sure want to leave this view without saving your content?
+        </h2>
+        <span class="button confirm" data-close-post-force="">
+          Leave without saving
+        </span>
+        <span class="button cancel" data-close-post-cancel="">
+          Cancel
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="terms-view block">
+    <div class="back" data-hide-terms="">
+      Back
+      <span>
+        <i class="icon-back icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-back"></use>
+          </svg>
+        </i>
+      </span>
+    </div>
+    <h2>
+      Terms & conditions
+    </h2>
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+</script>
+<script id="news-list-template" type="text/x-handlebars-template">
+  <div class="overlay__list-container">
+    <div class="overlay__list-view-changer">
+      <a data-nav="true" href="/{{language}}/liveblog/">
+        Liveblog
+      </a>
+      <a class="active" data-nav="true" href="/{{language}}/news/">
+        News
+      </a>
+    </div>
+    <div class="nano">
+      <ul class="overlay__list-content nano-content">
+        {{#each news}}
+        <li class="overlay__list-content-item">
+          <a class="overlay__list-image-link" href="{{this.externalLink}}" target="_blank">
+            <img class="overlay__list-image" src="{{this.image}}">
+          </a>
+          <div class="overlay__list-content-texts">
+            <a class="overlay__list-content-title" href="{{this.externalLink}}" target="_blank">
+              <span>News</span>
+              {{this.title}}
+            </a>
+            <p class="overlay__list-content-description">
+              {{this.subTitle}}
+            </p>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</script>
+<script id="liveblog-list-template" type="text/x-handlebars-template">
+  <div class="overlay__list-container">
+    <div class="overlay__list-view-changer">
+      <a class="active" data-nav="true" href="/{{language}}/liveblog/">
+        Liveblog
+      </a>
+      <a data-nav="true" href="/{{language}}/news/">
+        News
+      </a>
+    </div>
+    <div class="nano">
+      <ul class="overlay__list-content nano-content">
+        {{#each data}}
+        <li class="overlay__list-content-item">
+          <a class="overlay__list-image-link" data-nav="true" href="{{url}}">
+            <img class="overlay__list-image" src="{{imageUrl}}">
+          </a>
+          <div class="overlay__list-content-texts">
+            <a class="overlay__list-content-title" data-nav="true" href="{{url}}">
+              <span>Live Blog</span>
+              {{this.title}}
+            </a>
+            <p class="overlay__list-content-description">
+              {{this.description}}
+            </p>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</script>
+<script id="search-template" type="text/x-handlebars-template">
+  <div class="overlay__list-container">
+    <div class="nano">
+      <ul class="overlay__list-content nano-content">
+        {{#eq total 0}}
+        <li class="overlay__list-content-item text--size-36 text--align-center">
+          No search results
+        </li>
+        {{else}}
+        {{#each data}}
+        <li class="overlay__list-content-item">
+          <a class="overlay__list-image-link" data-nav="true" href="{{this.url}}">
+            <img class="overlay__list-image" src="{{this.imageUrl}}">
+          </a>
+          <div class="overlay__list-content-texts">
+            <a class="overlay__list-content-title" data-nav="true" href="{{url}}">
+              {{this.title}}
+            </a>
+            <p class="overlay__list-content-description">
+              {{this.description}}
+            </p>
+          </div>
+        </li>
+        {{/each}}
+        {{/eq}}
+      </ul>
+    </div>
+  </div>
+</script>
+<script id="contribute-template" type="text/x-handlebars-template">
+  <div class="overlay__post-item">
+    <div class="image-container" style='background-image: url("{{imageUrl}}");'></div>
+    <div class="overlay__post-item-content">
+      <a class="overlay__post-city-name" data-nav="true" href="/{{language}}/city/{{cityName}}">
+        {{cityName}}
+      </a>
+      {{#if isOfficial}}
+      <a class="button button--bg-red">
+        Live Blog
+      </a>
+      {{/if}}
+      <div class="nano">
+        <div class="nano-content">
+          <h2>
+            {{title}}
+          </h2>
+          <p>
+            {{description}}
+          </p>
+        </div>
+      </div>
+      <div class="meta">
+        <h3>
+          Posted by
+          <strong>
+            {{userName}}
+          </strong>
+          on
+          <small>
+            {{dateLabel}}
+          </small>
+        </h3>
+        {{#if tags}}
+        <div class="tag-container">
+          <span class="icon">
+            <i class="icon-tag icon-wrapper">
+              <svg viewBox="0 0 256 256">
+                <use xlink:href="#icon-tag"></use>
+              </svg>
+            </i>
+          </span>
+          {{#each tags}}<a data-nav="true" href="/{{../language}}/search/{{this}}">&#35;{{this}}</a>{{/each}}
+        </div>
+        {{/if}}
+      </div>
+      <div class="share-container">
+        <label>
+          <span class="icon">
+            <i class="icon-share-action icon-wrapper">
+              <svg viewBox="0 0 256 256">
+                <use xlink:href="#icon-share-action"></use>
+              </svg>
+            </i>
+          </span>
+          Share
+        </label>
+        <div>
+          <a class="facebook" data-caption="My Baku 2015 Torch photo" data-link="{{permalink}}" data-popup="600x350" data-socialll="facebook" href="https://www.facebook.com/dialog/feed?app_id={{facebookAppId}}&amp;display=popup&amp;caption=My%20Baku%202015%20Torch%20photo&amp;link={{permalink}}&amp;redirect_uri={{domain}}/close.html">
+            Share on Facebook
+            <span class="icon">
+              <i class="icon-facebook icon-wrapper">
+                <svg viewBox="0 0 256 256">
+                  <use xlink:href="#icon-facebook"></use>
+                </svg>
+              </i>
+            </span>
+          </a>
+          <a class="twitter" href="http://twitter.com/intent/tweet?text=I just took this Baku 2015 Torch photo {{permalink}}&amp;via=BakuGames2015" target="_blank">
+            Share on Twitter
+            <span class="icon">
+              <i class="icon-twitter icon-wrapper">
+                <svg viewBox="0 0 256 256">
+                  <use xlink:href="#icon-twitter"></use>
+                </svg>
+              </i>
+            </span>
+          </a>
+          <a class="mail" href="mailto:?subject=See my Baku 2015 Torch photo here&amp;body=Hi,%0D%0AI just took this Baku 2015 Torch photo, you can see it here: {{permalink}}">
+            Send via email
+            <span class="icon">
+              <i class="icon-mail icon-wrapper">
+                <svg viewBox="0 0 256 256">
+                  <use xlink:href="#icon-mail"></use>
+                </svg>
+              </i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="post-message-container"><a class="button button--with-border" data-nav="true" href="/{{../language}}/contribute">Post your message</a></div>
+    </div>
+    {{#if prevID}}
+    <a class="overlay__control overlay__control--back" data-nav="overlay-back" href="/{{language}}/post/{{prevID}}">
+      <span>
+        <i class="icon-back icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-back"></use>
+          </svg>
+        </i>
+      </span>
+    </a>
+    {{/if}}
+    {{#if nextID}}
+    <a class="overlay__control overlay__control--forward" data-nav="overlay-forward" href="/{{language}}/post/{{nextID}}">
+      <span>
+        <i class="icon-forward icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-forward"></use>
+          </svg>
+        </i>
+      </span>
+    </a>
+    {{/if}}
+  </div>
+  {{#if isnavigated}}
+  <div class="overlay__close" data-nav="true" href="/{{language}}/city/{{cityName}}">
+    <span>
+      <i class="icon-close icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+      </i>
+    </span>
+  </div>
+  {{/if}}
+</script>
+<script id="city-popup-template" type="text/x-handlebars-template">
+  <a class="city-link" data-nav="true" href="{{this.slug}}">
+    <div class="picture">
+      <span class="icon">
+        <i class="icon-image icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-image"></use>
+          </svg>
+        </i>
+      </span>
+      <span class="pic" style='background-image: url("{{this.mainImageThumb}}");'></span>
+    </div>
+    <h4>
+      {{this.day}}
+    </h4>
+    <h3>
+      {{this.dateDay}}
+    </h3>
+    <h2>
+      {{this.title}}
+    </h2>
+    <p>
+      {{this.subtitle}}
+    </p>
+  </a>
+  {{#if prevCity}}
+  <a class="overlay__control overlay__control--back" data-nav="overlay-back" href="{{prevCity.slug}}">
+    <span class="name">
+      {{prevCity.shortTitle}}
+    </span>
+    <span class="icon vertical">
+      <i class="icon-up icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-up"></use>
+        </svg>
+      </i>
+    </span>
+    <span class="icon horizontal">
+      <i class="icon-back icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-back"></use>
+        </svg>
+      </i>
+    </span>
+  </a>
+  {{/if}}
+  {{#if nextCity}}
+  <a class="overlay__control overlay__control--forward" data-nav="overlay-forward" href="{{nextCity.slug}}">
+    <span class="name">
+      {{nextCity.shortTitle}}
+    </span>
+    <span class="icon vertical">
+      <i class="icon-down icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-down"></use>
+        </svg>
+      </i>
+    </span>
+    <span class="icon horizontal">
+      <i class="icon-forward icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-forward"></use>
+        </svg>
+      </i>
+    </span>
+  </a>
+  {{/if}}
+</script>
+<script id="city-details-template" type="text/x-handlebars-template">
+  <div class="overlay__city-item nano">
+    <div class="nano-content">
+      <div class="image-container">
+        <div class="carousel big" data-carousel>
+          <div class="list-container">
+            <ul class="list" data-carousel-list data-current-index="0">
+              {{#each media}}<li class="list-elem block--inline-block">{{#eq type 'video'}}
+              <iframe allowfullscreen="" autohide="2" enablejsapi="1" frameborder="0" height="360" id="player" src="https://www.youtube.com/embed/{{{url}}}?rel=0&amp;enablejsapi=1&amp;autohide=1" width="640"></iframe>
+              {{else}}
+              <img class="overlay__list-image" src="{{this.url}}">
+              {{/eq}}</li>{{/each}}
+            </ul>
+          </div>
+          <div class="pagination-box">
+            <div class="carousel__pagination">
+              <a class="block--inline-block carousel--nav prev fadeout-active" data-prev-slide>
+                <i class="icon-wrapper left-arrow text--color-grey">
+                  <svg viewBox="0 0 256 256">
+                    <use xlink:href="#left-arrow"></use>
+                  </svg>
+                </i>
+              </a>
+              <ul class="block--inline-block bullet-list" data-carousel-indicator>
+                {{#each media}}<li class="block--inline-block bullet-elem fadeout-active"><a class="bullet"></a></li>{{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="city-info-container">
+        <div class="city-info-map-container">
+          <div class="city-info-map" data-small-map-city-title="{{title}}">
+            <span class="city-map-pointer" data-minimap-city="true"></span>
+          </div>
+        </div>
+        <div class="city-timetable-container">
+          <h3 class="city-timetable-title">
+            {{#eq eventType '3'}}
+            Events in Baku
+            {{else}}
+            {{#if event}}
+            Schedule
+            {{else}}
+            Festival of fire
+            {{/if}}
+            {{/eq}}
+          </h3>
+          <ul class="city-timetable-list">
+            {{#eq eventType '3'}}
+            {{#each eventList}}
+            <li>
+              <a data-nav="true" href="/{{../language}}/event/{{id}}">
+                <small>
+                  {{dateLabel}}
+                </small>
+                {{title}}
+              </a>
+            </li>
+            {{/each}}
+            {{else}}
+            {{#each schedule}}
+            <li>
+              {{date}} {{title}}
+            </li>
+            {{/each}}
+            {{/eq}}
+          </ul>
+        </div>
+      </div>
+      {{#eq eventType '3'}}
+      <div class="overlay__city-item-content multiple-events">
+        <h2>
+          {{title}}
+        </h2>
+        <p>
+          {{{description}}}
+        </p>
+      </div>
+      {{else}}
+      <div class="overlay__city-item-content">
+        <h2>
+          {{title}}
+        </h2>
+        <p>
+          {{{description}}}
+        </p>
+      </div>
+      {{/eq}}
+    </div>
+  </div>
+  {{#if isnavigated}}
+  <div class="overlay__close" data-nav="true" href="/{{language}}/city/{{title}}">
+    <span>
+      <i class="icon-close icon-wrapper">
+        <svg viewBox="0 0 256 256">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+      </i>
+    </span>
+  </div>
+  {{/if}}
+</script>
+<script id="timeline-template" type="text/x-handlebars-template">
+  <div class="timeline-dates" data-timeline-dates="">
+    <ul>
+      {{#each dates}}
+      <li data-date="{{@key}}" data-status="{{this.torch}}">
+        <strong>{{@key}}</strong>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="timeline-cities" data-timeline-cities="">
+    <div class="timeline-cities-scroller">
+      <ul>
+        {{#each dates}}
+        <li data-date="{{@key}}" data-status="{{this.torch}}">
+          <strong>{{this.date}}</strong>
+          {{#each cities}}
+          <a data-city="{{this.id}}" data-nav="true" href="{{this.slug}}">{{shortTitle}}</a>
+          {{/each}}
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <span class="timeline-pager-prev" data-timeline-prev=""></span>
+  <span class="timeline-pager-next" data-timeline-next=""></span>
+</script>
+<script id="contribute-success-template" type="text/x-handlebars-template">
+  <h2>
+    Your image was posted!
+  </h2>
+  <h3>
+    Thank you for your contribution!
+  </h3>
+  <div class="share">
+    <label>
+      <span class="icon">
+        <i class="icon-share-action icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-share-action"></use>
+          </svg>
+        </i>
+      </span>
+      Share your photo
+    </label>
+    <div>
+      <a class="facebook" data-popup="600x350" href="https://www.facebook.com/dialog/feed?app_id={{facebookAppId}}&amp;display=popup&amp;caption=My%20Baku%202015%20Torch%20photo&amp;link={{permalink}}&amp;redirect_uri={{domain}}/close.html">
+        Share on Facebook
+        <span class="icon">
+          <i class="icon-facebook icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-facebook"></use>
+            </svg>
+          </i>
+        </span>
+      </a>
+      <a class="twitter" href="http://twitter.com/intent/tweet?text=I just took this Baku 2015 Torch photo {{permalink}}&amp;via=BakuGames2015" target="_blank">
+        Share on Twitter
+        <span class="icon">
+          <i class="icon-twitter icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-twitter"></use>
+            </svg>
+          </i>
+        </span>
+      </a>
+      <a class="mail" href="mailto:?subject=See my Baku 2015 Torch photo here&amp;body=Hi,%0D%0AI just took this Baku 2015 Torch photo, you can see it here: {{permalink}}">
+        Send via email
+        <span class="icon">
+          <i class="icon-mail icon-wrapper">
+            <svg viewBox="0 0 256 256">
+              <use xlink:href="#icon-mail"></use>
+            </svg>
+          </i>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="invite">
+    <a class="button" href="mailto:?subject=Post your Baku 2015 Torch photo&amp;body=Hi,%0D%0ATook some Baku 2015 Torch photo? Time to show the world, upload it here: {{domain}}">
+      Invite my friends!
+    </a>
+    <div class="copy">
+      <input data-copy-url="" readonly="readonly" title="Copy and paste this URL" value="{{permalink}}">
+      <span class="icon">
+        <i class="icon-link icon-wrapper">
+          <svg viewBox="0 0 256 256">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+</script>
+<script id="content-template" type="text/x-handlebars-template">
+  <div class="nano">
+    <div class="nano-content">
+      <div class="block block--padding">
+        <h1>Privacy & Policy</h1>
+        <p>he #1 Online Privacy Policy Generator! Here at Free Privacy Policy, we've helped almost three hundred thousand website owners create easy-to-read, highly effective, custom privacy policies.</p>
+      </div>
+    </div>
+  </div>
 </script>
 
 </body>

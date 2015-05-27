@@ -1,0 +1,105 @@
+{  
+   "result":{  
+      "id":"e0103024-3af9-4cff-9a92-e4fdaf5f586f",
+      "title":"Baku",
+      "eventType":"3",
+      "date":"2015-06-11",
+      "day":"Thursday",
+      "dateLabel":"June 11, 2015",
+      "dateNum":"47",
+      "type":null,
+      "images":[  
+
+      ],
+      "description":"<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href=\"#\">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p> <h2>Header Level 2</h2> <ol> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ol> <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote> <h3>Header Level 3</h3> <img src=\"//~/media/images/baku2015/sharepic.gif\" alt=\"test\" /> <ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ul>",
+      "connectTo":"00000000-0000-0000-0000-000000000000",
+      "videoUrl":"",
+      "eventList":[  
+         {  
+            "id":"109c145c-bcca-402f-8df3-1f253ed59622",
+            "title":"Torch Arrival Celebrations",
+            "date":"2015-06-07",
+            "dateLabel": "Jun 07",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"43898242-8acc-4e0f-ae58-9729238d193b",
+            "title":"Visiting Games Venues",
+            "date":"2015-06-08",
+            "dateLabel": "Jun 08",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"a55e4ed8-8679-46ad-b3ca-5ff6f8bfcfed",
+            "title":"Art and Architecture Programme",
+            "date":"2015-06-09",
+            "dateLabel": "Jun 09",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"446742db-619e-476e-9070-071404b5d14c",
+            "title":"Old City Programme",
+            "date":"2015-06-10",
+            "dateLabel": "Jun 10",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"fd160e6c-43d8-4236-a0a4-0d983486959c",
+            "title":"Flame Departure",
+            "date":"2015-06-11",
+            "dateLabel": "Jun 11",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"8cefcc7a-28af-4163-ba88-ae335cc5f879",
+            "title":"Opening Ceremony",
+            "date":"2015-06-12",
+            "dateLabel": "Jun 12",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         },
+         {  
+            "id":"e846a304-800e-4d55-92c5-25f6c9ef41fc",
+            "title":"Closing Ceremony",
+            "date":"2015-06-28",
+            "dateLabel": "Jun 28",
+            "images":[  
+
+            ],
+            "description":"",
+            "videoUrl":""
+         }
+      ],
+      "mainImage":null
+   },
+   "errorCodes":null,
+   "redirectUrl":null,
+   "responseMessage":null,
+   "isSuccess":true,
+   "serverTime":1427893091,
+   "genericError":null,
+   "technicalError":null
+}
