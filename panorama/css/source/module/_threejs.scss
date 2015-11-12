@@ -1,0 +1,30 @@
+
+.panorama {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+
+	&__inner {
+		width: 100%;
+		height: 100%;
+//		max-width: 1200px;
+//		max-height: 700px;
+		background: url(../i/content/elevator.jpg) no-repeat center center;
+		background-size: cover;
+//		border: 1px solid #CCC;
+
+		canvas {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+
+	#webglcanvas {
+		display: none;
+	}
+
+}
+
+

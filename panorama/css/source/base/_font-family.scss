@@ -1,0 +1,21 @@
+// Font directory, families, weights
+$typo-font-directory: '../font/typo/';
+$typo-fonts: (
+		'font-1' : (
+				'normal' : 'font-1-normal' 'normal' ,
+				'light' : 'font-1-light' 'normal',
+				'bold': 'font-1-bold' 'normal',
+				'italic': 'font-1-italic' 'normal'
+		),
+		'font-2' : (
+				'normal' : 'font-2-normal' 'normal',
+				'light' : 'font-2-light' 'normal',
+				'bold': 'font-2-bold' 'normal',
+				'italic': 'font-2-italic' 'normal'
+		)
+);
+
+// Icon font directory, families, weights
+$icon-font-directory: '../font/icon/';
+$icon-fonts: 'icon-font';
+$icon-font-weights: normal;

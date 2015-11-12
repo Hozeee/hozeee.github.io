@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+<head prefix="expression">
+	<meta charset="utf-8">
+	<title>Page title</title>
+	<meta content="IE=Edge" name="http-equiv">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+	<meta content="keywords" name="keywords">
+	<meta content="description" name="description">
+	<link href="favicon" rel="icon">
+	<meta content="OG TITLE" property="og:title">
+	<meta content="website" property="og:type">
+	<meta content="OG URL" property="og:url">
+	<meta content="OG IMAGE" property="og:image">
+	<meta content="OG SITE NAME" property="og:site_name">
+	<meta content="OG DESCRIPTION" property="og:description">
+	<meta content="FB APP ID" property="og:fb:app_id">
+	<meta content="summary" name="twitter:card">
+	<meta content="@site_username" name="twitter:site">
+	<meta content="PAGE TITLE" name="twitter:title">
+	<meta content="DESCRIPTION" name="twitter:description">
+	<meta content="@creator_username" name="twitter:creator">
+	<meta content="IMAGE" name="twitter:image:src">
+	<meta content="DOMAIN" name="twitter:domain">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="Page title" name="apple-mobile-web-app-title">
+	<meta content="telephone=no" name="format-detection">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="57x57">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="72x72">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="76x76">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="114x114">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="120x120">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="144x144">
+	<link href="#TOUCH_ICON_HERE" rel="apple-touch-icon" sizes="152x152">
+	<!--[if gte IE 10]>
+	<meta content="Page title" name="application-name">
+	<meta content="description" name="msapplication-tooltip">
+	<meta content="#TILECOLOR_HERE" name="msapplication-tilecolor">
+	<meta content="#TILEIMAGE_HERE" name="msapplication-tileimage">
+	<![endif]-->
+	<link href="css/app.css" media="screen" rel="stylesheet" type="text/css"/>
+	<script src="js/headjs.js" type="text/javascript"></script>
+	<script>
+		var secondaryHeadScripts = [ "js/modernizr.js", false],
+				scriptInterface = ["Modernizr", "THREE"],
+				needFallbackLoad = false,
+				i, fallbackScripts = [];
+
+		head.load(["//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js", "js/head.min.js", "js/three.js"], function () {
+
+			for (i = 0; i < scriptInterface.length; i++) {
+				if (secondaryHeadScripts[i] && !window[scriptInterface[i]]) {
+					fallbackScripts.push(secondaryHeadScripts[i]);
+					needFallbackLoad = true;
+				}
+			}
+
+		});
+	</script>
+</head>
+<body>
+<div class="page">
+	<div class="panorama block block--vp block--vp-middle">
+		<div class="panorama__inner block block--inline-block" data-render="webgl3" id="panorama">
+			<div id="space">
+				<div class="pivot">
+					<div class="rotate" data-rotate="">
+						<div class="side side-front">
+							<canvas height="1000" id="side-front" width="1000"></canvas>
+						</div>
+						<div class="side side-left">
+							<canvas height="1000" id="side-left" width="1000"></canvas>
+						</div>
+						<div class="side side-right">
+							<canvas height="1000" id="side-right" width="1000"></canvas>
+						</div>
+						<div class="side side-back">
+							<canvas height="1000" id="side-back" width="1000"></canvas>
+						</div>
+						<div class="side side-top">
+							<canvas height="1000" id="side-top" width="1000"></canvas>
+						</div>
+						<div class="side side-bottom">
+							<canvas height="1000" id="side-bottom" width="1000"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panorama__button block" id="startbutton">
+				<div class="panorama__button__text">Start Experience</div>
+				<div class="panorama__button__device">Loading data...</div>
+			</div>
+			<div class="panorama__button block" id="notsupportedbutton">
+				<div class="panorama__button__text">Not supported</div>
+			</div>
+			<div class="loader" id="loader">
+				<img height="65" src="i/asset/loading-spin.svg" width="64">
+
+				<h1>Loading</h1>
+			</div>
+		</div>
+	</div>
+	<div class="possiblelogo block">
+		<div class="possible__image">
+			<img height="32" src="i/asset/possible.svg" width="140">
+		</div>
+	</div>
+</div>
+<script>
+	head.load(["js/app.min.js", "js/jquery.js", "js/plugin.min.js"], function () {
+		APP.Main.getInstance();
+	});
+</script>
+
+</body>
+</html>

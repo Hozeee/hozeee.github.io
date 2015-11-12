@@ -1,0 +1,496 @@
+
+.block {
+	position: relative;
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.block--full-width {
+	width: 100%
+}
+
+.block--full-height {
+	height: 100%
+}
+
+.block--full-size {
+	height: 100%;
+	width: 100%
+}
+
+.block--min-full-width {
+	min-width: 100%
+}
+
+.block--min-full-height {
+	min-height: 100%
+}
+
+.block--centered {
+	margin-left: auto;
+	margin-right: auto
+}
+
+.block--padding {
+	padding: 18px
+}
+
+.block--margin {
+	margin: 18px
+}
+
+.block--hpadding {
+	padding-left: 18px;
+	padding-right: 18px
+}
+
+.block--vpadding {
+	padding-top: 18px;
+	padding-bottom: 18px
+}
+
+.block--hmargin {
+	margin-left: 18px;
+	margin-right: 18px
+}
+
+.block--vmargin {
+	margin-top: 18px;
+	margin-bottom: 18px
+}
+
+.block--padding-top {
+	padding-top: 18px
+}
+
+.block--margin-top {
+	margin-top: 18px
+}
+
+.block--padding-right {
+	padding-right: 18px
+}
+
+.block--margin-right {
+	margin-right: 18px
+}
+
+.block--padding-bottom {
+	padding-bottom: 18px
+}
+
+.block--margin-bottom {
+	margin-bottom: 18px
+}
+
+.block--padding-left {
+	padding-left: 18px
+}
+
+.block--margin-left {
+	margin-left: 18px
+}
+
+.block--padding-quarter {
+	padding: 5px
+}
+
+.block--margin-quarter {
+	margin: 5px
+}
+
+.block--hpadding-quarter {
+	padding-left: 5px;
+	padding-right: 5px
+}
+
+.block--vpadding-quarter {
+	padding-top: 5px;
+	padding-bottom: 5px
+}
+
+.block--hmargin-quarter {
+	margin-left: 5px;
+	margin-right: 5px
+}
+
+.block--vmargin-quarter {
+	margin-top: 5px;
+	margin-bottom: 5px
+}
+
+.block--padding-top-quarter {
+	padding-top: 5px
+}
+
+.block--margin-top-quarter {
+	margin-top: 5px
+}
+
+.block--padding-right-quarter {
+	padding-right: 5px
+}
+
+.block--margin-right-quarter {
+	margin-right: 5px
+}
+
+.block--padding-bottom-quarter {
+	padding-bottom: 5px
+}
+
+.block--margin-bottom-quarter {
+	margin-bottom: 5px
+}
+
+.block--padding-left-quarter {
+	padding-left: 5px
+}
+
+.block--margin-left-quarter {
+	margin-left: 5px
+}
+
+.block--padding-half {
+	padding: 9px
+}
+
+.block--margin-half {
+	margin: 9px
+}
+
+.block--hpadding-half {
+	padding-left: 9px;
+	padding-right: 9px
+}
+
+.block--vpadding-half {
+	padding-top: 9px;
+	padding-bottom: 9px
+}
+
+.block--hmargin-half {
+	margin-left: 9px;
+	margin-right: 9px
+}
+
+.block--vmargin-half {
+	margin-top: 9px;
+	margin-bottom: 9px
+}
+
+.block--padding-top-half {
+	padding-top: 9px
+}
+
+.block--margin-top-half {
+	margin-top: 9px
+}
+
+.block--padding-right-half {
+	padding-right: 9px
+}
+
+.block--margin-right-half {
+	margin-right: 9px
+}
+
+.block--padding-bottom-half {
+	padding-bottom: 9px
+}
+
+.block--margin-bottom-half {
+	margin-bottom: 9px
+}
+
+.block--padding-left-half {
+	padding-left: 9px
+}
+
+.block--margin-left-half {
+	margin-left: 9px
+}
+
+.block--padding-double {
+	padding: 36px
+}
+
+.block--margin-double {
+	margin: 36px
+}
+
+.block--hpadding-double {
+	padding-left: 36px;
+	padding-right: 36px
+}
+
+.block--vpadding-double {
+	padding-top: 36px;
+	padding-bottom: 36px
+}
+
+.block--hmargin-double {
+	margin-left: 36px;
+	margin-right: 36px
+}
+
+.block--vmargin-double {
+	margin-top: 36px;
+	margin-bottom: 36px
+}
+
+.block--padding-top-double {
+	padding-top: 36px
+}
+
+.block--margin-top-double {
+	margin-top: 36px
+}
+
+.block--padding-right-double {
+	padding-right: 36px
+}
+
+.block--margin-right-double {
+	margin-right: 36px
+}
+
+.block--padding-bottom-double {
+	padding-bottom: 36px
+}
+
+.block--margin-bottom-double {
+	margin-bottom: 36px
+}
+
+.block--padding-left-double {
+	padding-left: 36px
+}
+
+.block--margin-left-double {
+	margin-left: 36px
+}
+
+.block--vp-full-width {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%)
+}
+
+.block--vp {
+	white-space: nowrap
+}
+
+.block--vp:before {
+	content: '';
+	display: inline-block;
+	max-width: 100%;
+	height: 100%;
+	margin-left: -0.42rem;
+	vertical-align: middle;
+	font: 0/0 a;
+	white-space: normal
+}
+
+.block--vp-top:before {
+	vertical-align: top
+}
+
+.block--vp-top > div {
+	vertical-align: top
+}
+
+.block--vp-top > p {
+	vertical-align: top
+}
+
+.block--vp-top > span {
+	vertical-align: top
+}
+
+.block--vp-top > a {
+	vertical-align: top
+}
+
+.block--vp-top > input {
+	vertical-align: top
+}
+
+.block--vp-top > label {
+	vertical-align: top
+}
+
+.block--vp-top > button {
+	vertical-align: top
+}
+
+.block--vp-middle:before {
+	vertical-align: middle
+}
+
+.block--vp-middle > div {
+	vertical-align: middle
+}
+
+.block--vp-middle > p {
+	vertical-align: middle
+}
+
+.block--vp-middle > span {
+	vertical-align: middle
+}
+
+.block--vp-middle > a {
+	vertical-align: middle
+}
+
+.block--vp-middle > input {
+	vertical-align: middle
+}
+
+.block--vp-middle > label {
+	vertical-align: middle
+}
+
+.block--vp-middle > button {
+	vertical-align: middle
+}
+
+.block--vp-bottom:before {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > div {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > p {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > span {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > a {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > input {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > label {
+	vertical-align: bottom
+}
+
+.block--vp-bottom > button {
+	vertical-align: bottom
+}
+
+.block--absolute, .block--to-top, .block--fill, .block--to-right, .block--to-bottom, .block--to-left {
+	position: absolute
+}
+
+.block--to-top, .block--fill {
+	top: 0
+}
+
+.block--to-right, .block--fill {
+	right: 0
+}
+
+.block--to-bottom, .block--fill {
+	bottom: 0
+}
+
+.block--to-left, .block--fill {
+	left: 0
+}
+
+.block--display-none {
+	display: none
+}
+
+.block--z-index-bottom {
+	z-index: 1
+}
+
+.block--z-index-low {
+	z-index: 10
+}
+
+.block--z-index-middle {
+	z-index: 100
+}
+
+.block--z-index-high {
+	z-index: 1000
+}
+
+.block--z-index-top {
+	z-index: 10000
+}
+
+.block--inline-block {
+	display: inline-block;
+	vertical-align: top
+}
+
+.block--va-top {
+	vertical-align: top
+}
+
+.block--va-middle {
+	vertical-align: middle
+}
+
+.block--va-bottom {
+	vertical-align: bottom
+}
+
+.block--overflow-hidden {
+	overflow: hidden
+}
+
+.block--bg-black {
+	background-color: #000
+}
+
+.block--bg-white {
+	background-color: #fff
+}
+
+.block--bg-transparent {
+	background-color: transparent
+}
+
+.block--bg-black-80 {
+	background-color: rgba(0, 0, 0, 0.8)
+}
+
+.block--bg-black-50 {
+	background-color: rgba(0, 0, 0, 0.5)
+}
+
+.button {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	border: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
